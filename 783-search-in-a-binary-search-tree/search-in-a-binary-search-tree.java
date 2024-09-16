@@ -32,7 +32,7 @@ class Solution {
             return search(root.right, val);
         }
         
-         return search(root.left, val);
+        return search(root.left, val);
         
     }
 }
