@@ -35,20 +35,18 @@ class Solution {
         if(head == tail){ //Sub-list is empty
             return null;
         }
-        ListNode mid = midNode(head,head,tail);
+        ListNode slow=head;
+        ListNode fast=head;
+        while(fast != tail && fast.next != tail){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        ListNode mid = slow;
 
         TreeNode root = new TreeNode(mid.val);
         root.left = createBST(head, mid);
         root.right = createBST(mid.next, tail);
 
         return root;
-    }
-
-    public ListNode midNode(ListNode slow, ListNode fast, ListNode tail){
-        while(fast != tail && fast.next != tail){
-            slow=slow.next;
-            fast=fast.next.next;
-        }
-        return slow;
     }
 }
