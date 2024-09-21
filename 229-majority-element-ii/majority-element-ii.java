@@ -4,12 +4,7 @@ class Solution {
         List<Integer> lt=new ArrayList<>();
         Hashtable<Integer,Integer> ht=new Hashtable<>();
         for(int i=0;i<nums.length;i++){
-            if(ht.containsKey(nums[i])){
-                ht.put(nums[i],ht.get(nums[i])+1);
-            }
-            else{
-                ht.put(nums[i],1);
-            }
+            ht.put(nums[i],ht.getOrDefault(nums[i],0)+1);
         }
 
         for(Integer key : ht.keySet()){
