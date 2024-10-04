@@ -17,16 +17,14 @@ class Solution {
                 temp.add(skill[l]);
                 temp.add(skill[r]);
                 lt.add(temp);
-                l+=1;
-                r-=1;
             }
-            else{
-                return -1;
-            }
-           
+            l+=1;
+            r-=1;
         }
 
-        
+        if(lt.size() != skill.length/2){
+            return -1;
+        }
         long sum=0;
         for(int i=0;i<lt.size();i++){
             List<Integer> t=lt.get(i);
